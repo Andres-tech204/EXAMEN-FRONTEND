@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup de Pagina web</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <div id="app">
+          <div class="tabs">
+              <button @click="activeTab = 'calificaciones'">Calculo de Calificaciones</button>
+              <button @click="activeTab = 'registro'">Formulario de registro</button>
+          </div>
+          
+          <div v-if="activeTab === 'calificaciones'">
+              <h2>Calculo de calificaciones</h2>
+              <input type="number" v-model="nota1" placeholder="Nota 1 (10-70)" />
+              <input type="number" v-model="nota2" placeholder="Nota 2 (10-70)" />
+              <input type="number" v-model="nota3" placeholder="Nota 3 (10-70)" />
+              <input type="number" v-model="asistencia" placeholder="Asistencia (0-100)" />
+              <button @click="calcular">Calcular</button>
+              <p>{{ resultado }}</p>
+          </div>
+          
+          <div v-if="activeTab === 'registro'">
+              <h2>Formulario de registro</h2>
+              <input type="text" v-model="nombre" placeholder="Nombre" />
+              <input type="email" v-model="correo" placeholder="Correo" />
+              <input type="password" v-model="contrasena" placeholder="Contraseña" />
+              <input type="password" v-model="repetirContrasena" placeholder="Repetir Contraseña" />
+              <button @click="registrar">Enviar</button>
+              <p>{{ mensajeRegistro }} </p>
+          </div>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+      <script src="app.js"></script>
+  </body>
+</html>
